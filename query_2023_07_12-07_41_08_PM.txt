@@ -1,0 +1,25 @@
+# User input: What pathways are associated with breast cancer?
+query generated_query {
+  search(queryString: "breast cancer", entityNames: "disease", page: {index: 0, size: 1}) {
+    hits {
+      id
+      name
+      object {
+        ... on Disease {
+          associatedTargets {
+            rows {
+              target {
+                id
+                approvedSymbol
+                pathways {
+                  pathwayId
+                  pathway
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

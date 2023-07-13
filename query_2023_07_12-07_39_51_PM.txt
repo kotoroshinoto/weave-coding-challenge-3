@@ -1,0 +1,22 @@
+# User input: What are the targets of vorinostat?
+query generated_query {
+  search(queryString: "vorinostat", entityNames: "drug", page: {index: 0, size: 1}) {
+    hits {
+      id
+      name
+      entity
+      object {
+        ... on Drug {
+          mechanismsOfAction {
+            rows {
+              targets {
+                id
+                approvedSymbol
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

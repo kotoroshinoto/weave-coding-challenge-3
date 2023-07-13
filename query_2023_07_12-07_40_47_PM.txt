@@ -1,0 +1,30 @@
+# User input: Which diseases are associated with the genes targeted by fasudil?
+query generated_query {
+  search(queryString: "fasudil", entityNames: "drug", page: {index: 0, size: 1}) {
+    hits {
+      id
+      name
+      entity
+      object {
+        ... on Drug {
+          linkedTargets {
+            rows {
+              approvedSymbol
+              ... on Target {
+                associatedDiseases {
+                  rows {
+                    score
+                    disease {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

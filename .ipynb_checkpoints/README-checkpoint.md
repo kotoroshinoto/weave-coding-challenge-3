@@ -21,6 +21,3 @@ e.g. "Which diseases are associated with the genes targetted by fasudil?", "Show
 - You may need an OpenAI account for OpenAI api or a similar LLM API access. 
 
 
-### Solution
-- Initial coding and exploration of approaches and programming options performed in 'ExploringSolution.ipynb'
-- CLI implementation in python file: 'ask_opentargets_using_gpt.py'

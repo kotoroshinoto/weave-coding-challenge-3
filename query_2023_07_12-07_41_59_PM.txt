@@ -1,0 +1,29 @@
+# User input: Show all the diseases that have at least 5 pathways associated with Alzheimers
+query generated_query {
+  search(queryString: "Alzheimer's", entityNames: "disease", page: {index: 0, size: 1}) {
+    hits {
+      id
+      name
+      object {
+        ... on Disease {
+          associatedTargets {
+            rows {
+              target {
+                id
+                approvedSymbol
+                pathways(page: {index: 0, size: 5}) {
+                  rows {
+                    pathway {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
